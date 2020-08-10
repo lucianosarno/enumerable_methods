@@ -1,6 +1,6 @@
 module Enumerable
   def my_each(array)
-    size=array.size
+    my_size=array.size
     puts 'size: '+size
     size.times do
       yield
