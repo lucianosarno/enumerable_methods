@@ -2,6 +2,8 @@ require './methods.rb'
 
 array_1 = [1, 2, 3]
 describe Enumerable do
+  let(:str_arr){ %w[ant bear cat] }
+
   describe '#my_each' do
     it '[1, 2, 3].each_cons(3) { |a| a } should return [1, 2, 3]' do
       expect(array_1.my_each { |a| a }).to eql([1, 2, 3])
@@ -33,13 +35,13 @@ describe Enumerable do
   end
   describe '#my_all?' do
     it '%w[ant bear cat].my_all? { |word| word.length >= 3 } return true' do
-      expect(%w[ant bear cat].my_all? { |word| word.length >= 3 }).to eql(true)
+      expect(str_arr.my_all? { |word| word.length >= 3 }).to eql(true)
     end
     it '%w[ant bear cat].all? { |word| word.length >= 4 } return false' do
-      expect(%w[ant bear cat].all? { |word| word.length >= 4 }).to eql(false)
+      expect(str_arr.all? { |word| word.length >= 4 }).to eql(false)
     end
     it '%w[ant bear cat].all?(/t/) returns false' do
-      expect(%w[ant bear cat].my_all?(/t/)).to eql(false)
+      expect(str_arr.my_all?(/t/)).to eql(false)
     end
     it '[1, 2i, 3.14].all?(Numeric) returns true ' do
       expect([1, 2i, 3.14].all?(Numeric)).to eql(true)
