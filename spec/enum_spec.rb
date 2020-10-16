@@ -139,5 +139,11 @@ describe Enumerable do
       expect(longest).to eql('sheep')
     end            
   end
+  describe 'multiply_els' do
+    it 'multiply_els(nil) returns "NoArrayGiven"' do
+      puts "multiply_els(nil) #{multiply_els(nil)}"
+      expect(multiply_els(nil)).to eql("NoArrayGiven")
+    end     
+  end
 
 end
