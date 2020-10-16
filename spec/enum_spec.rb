@@ -29,7 +29,7 @@ describe Enumerable do
     it '(1..10).my_select { |i|  i % 3 == 0 }   #=> [3, 6, 9]' do
       expect((1..10).my_select { |i| i % 3 == 0 }).to eql([3, 6, 9])
     end
-    it '[:foo, :bar].filter { |x| x == :foo }   #=> [:foo]' do
+    it '[:foo, :bar].my_select { |x| x == :foo }   #=> [:foo]' do
       expect(%i[foo bar].my_select { |x| x == :foo  }).to eql([:foo])
     end
   end
