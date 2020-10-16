@@ -54,6 +54,23 @@ describe Enumerable do
     end
   end
   describe '#my_any?' do
-
+    it '%w[ant bear cat].my_any? { |word| word.length >= 3 } return true' do
+      expect(str_arr.my_any? { |word| word.length >= 3 }).to eql(true)
+    end  
+    it '%w[ant bear cat].my_any? { |word| word.length >= 4 } return true' do
+      expect(str_arr.my_any? { |word| word.length >= 4 }).to eql(true)
+    end 
+    it '%w[ant bear cat].my_any?(/d/) returns false' do
+      expect(str_arr.my_any?(/d/)).to eql(false)
+    end    
+    it '[nil, true, 99].my_any?(Integer)  returns true' do
+      expect([nil, true, 99].my_any?(Integer) ).to eql(true)
+    end    
+    it '[nil, true, 99].my_any? returns true' do
+      expect([nil, true, 99].my_any?).to eql(true)
+    end  
+    it '[].my_any? returns true ' do
+      expect([].my_any?).to eql(false)
+    end     
   end
 end
