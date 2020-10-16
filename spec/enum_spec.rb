@@ -83,20 +83,20 @@ describe Enumerable do
     it '%w[ant bear cat].my_none?(/d/) returns true' do
       expect(str_arr.my_none?(/d/)).to eql(true)
     end
-    it '[1, 3.14, 42].none?(Float) returns false' do
-      expect([1, 3.14, 42].none?(Float)).to eql(false)
+    it '[1, 3.14, 42].my_none?(Float) returns false' do
+      expect([1, 3.14, 42].my_none?(Float)).to eql(false)
     end
-    it '[].none? returns true' do
-      expect([].none?).to eql(true)
+    it '[].my_none? returns true' do
+      expect([].my_none?).to eql(true)
     end
-    it '[nil].none? returns true' do
-      expect([nil].none?).to eql(true)
+    it '[nil].my_none? returns true' do
+      expect([nil].my_none?).to eql(true)
     end 
-    it '[nil, false].none? returns true' do
-      expect([nil, false].none?).to eql(true)
+    it '[nil, false].my_none? returns true' do
+      expect([nil, false].my_none?).to eql(true)
     end 
-    it '[nil, false, true].none? returns false' do
-      expect([nil, false, true].none?).to eql(false)
+    it '[nil, false, true].my_none? returns false' do
+      expect([nil, false, true].my_none?).to eql(false)
     end 
   end
 end
