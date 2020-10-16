@@ -1,3 +1,6 @@
+# frozen_string_literal: true
+
+# this module empliments enumerable methods
 module Enumerable
   def my_each
     return to_enum(:my_each) unless block_given?
@@ -77,7 +80,9 @@ module Enumerable
     new_array
   end
 
-  def my_inject(input1 = nil, input2 = nil) # rubocop:disable Metrics/CyclomaticComplexity, Metrics/PerceivedComplexity
+  # rubocop:disable Metrics/CyclomaticComplexity, Metrics/PerceivedComplexity, Metrics/MethodLength,  Metrics/AbcSize
+
+  def my_inject(input1 = nil, input2 = nil)
     raise TypeError, "#{input1} is not a symbol nor a string" if input1.is_a?(Integer) && input2.nil? && !block_given?
 
     raise LocalJumpError, 'No block Given or Empty Argument' if input1.nil? && input2.nil? && !block_given?
@@ -106,3 +111,5 @@ def multiply_els(input = nil)
 
   input.my_inject(:*)
 end
+
+# rubocop:enable Metrics/CyclomaticComplexity, Metrics/PerceivedComplexity, Metrics/MethodLength,  Metrics/AbcSize
