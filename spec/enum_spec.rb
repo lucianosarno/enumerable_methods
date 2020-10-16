@@ -47,6 +47,9 @@ describe Enumerable do
     it '[].all? returns true ' do
       expect([].all? ).to eql(true)
     end
+    it '[nil, true, 99].all?  returns false' do
+      expect([nil, true, 99].all? ).to eql(false)
+    end
   end
 
 end
