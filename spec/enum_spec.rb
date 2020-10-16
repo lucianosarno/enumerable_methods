@@ -14,7 +14,7 @@ describe Enumerable do
  
     it '%w(cat dog wombat).my_each_with_index { |item, index| hash[item] = index } should return {"cat"=>0, "dog"=>1, "wombat"=>2}' do
       array_2 = ['cat', 'dog', 'wombat']
-      array_2_expected = {"cat"=>0, "dog"=>1, "wombat"=>2}
+      array_2_expected = {'cat'=>0, "dog"=>1, "wombat"=>2}
       hash_new = Hash.new
       array_2.my_each_with_index { |item, index|
         hash_new[item] = index
@@ -110,5 +110,13 @@ describe Enumerable do
     it '[1, 2, 4, 2].my_count { |x| x%2==0 } returns 3' do
       expect(ary.my_count { |x| x%2==0 }).to eql(3)
     end  
+  end
+  describe '#my_map' do
+    it '(1..4)).my_map { |i| i*i }  returns [1, 4, 9, 16]' do
+      expect((1..4).my_map { |i| i*i }).to eql([1, 4, 9, 16])
+    end 
+    it "(1..4)).my_map { 'cat' }  returns ['cat', 'cat', 'cat', 'cat']" do
+      expect((1..4).my_map { 'cat' }).to eql(['cat', 'cat', 'cat', 'cat'])
+    end
   end
 end
