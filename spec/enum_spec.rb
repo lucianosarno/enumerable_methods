@@ -20,4 +20,40 @@ describe Enumerable do
       expect(hash_new).to eql(array_2_expected)
     end
   end  
+  describe '#my_select' do
+    it '[1,2,3,4,5].my_select { |num|  num.even?  }  should return [2, 4]' do
+      expect([1, 2, 3, 4, 5].my_select { |num| num.even?}).to eql([2, 4])
+    end
+    it '(1..10).my_select { |i|  i % 3 == 0 }   #=> [3, 6, 9]' do
+      expect((1..10).my_select { |i| i % 3 == 0 }).to eql([3, 6, 9])
+    end
+    it '[:foo, :bar].filter { |x| x == :foo }   #=> [:foo]' do
+      expect(%i[foo bar].my_select { |x| x == :foo  }).to eql([:foo])
+    end
+  end
+  describe '#my_all?' do
+    it '%w[ant bear cat].my_all? { |word| word.length >= 3 } return true' do
+      expect(%w[ant bear cat].my_all? { |word| word.length >= 3 }).to eql(true)
+    end
+    it '%w[ant bear cat].all? { |word| word.length >= 4 } return false' do
+      expect(%w[ant bear cat].all? { |word| word.length >= 4 }).to eql(false)
+    end
+    it '%w[ant bear cat].all?(/t/) returns false' do
+      expect(%w[ant bear cat].my_all?(/t/)).to eql(false)
+    end
+    it '[1, 2i, 3.14].all?(Numeric) returns true ' do
+      expect([1, 2i, 3.14].all?(Numeric)).to eql(true)
+    end
+    it '[].all? returns true ' do
+      expect([].all? ).to eql(true)
+    end
+  end
+
 end
+
+ #=> true
+%w[ant bear cat].all? { |word| word.length >= 4 } #=> false
+%w[ant bear cat].all?(/t/)                        #=> false
+[1, 2i, 3.14].all?(Numeric)                       #=> true
+[nil, true, 99].all?                              #=> false
+[].all?                                           #=> true
