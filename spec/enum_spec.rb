@@ -99,4 +99,16 @@ describe Enumerable do
       expect([nil, false, true].my_none?).to eql(false)
     end 
   end
+  describe '#my_count' do
+    ary = [1, 2, 4, 2]  
+    it '[1, 2, 4, 2].my_count returns 4' do
+      expect(ary.my_count).to eql(4)
+    end
+    it '[1, 2, 4, 2].my_count(2) returns 2' do
+      expect(ary.my_count(2)).to eql(2)
+    end 
+    it '[1, 2, 4, 2].my_count { |x| x%2==0 } returns 3' do
+      expect(ary.my_count { |x| x%2==0 }).to eql(3)
+    end  
+  end
 end
