@@ -73,4 +73,30 @@ describe Enumerable do
       expect([].my_any?).to eql(false)
     end     
   end
+  describe '#my_none' do
+    it '%w[ant bear cat].my_none? { |word| word.length == 5} return true' do
+      expect(str_arr.my_none? { |word| word.length == 5 }).to eql(true)
+    end  
+    it '%w[ant bear cat].my_none? { |word| word.length >= 4} return false' do
+      expect(str_arr.my_none? { |word| word.length >= 4}).to eql(false)
+    end      
+    it '%w[ant bear cat].my_none?(/d/) returns true' do
+      expect(str_arr.my_none?(/d/)).to eql(true)
+    end
+    it '[1, 3.14, 42].none?(Float) returns false' do
+      expect([1, 3.14, 42].none?(Float)).to eql(false)
+    end
+    it '[].none? returns true' do
+      expect([].none?).to eql(true)
+    end
+    it '[nil].none? returns true' do
+      expect([nil].none?).to eql(true)
+    end 
+    it '[nil, false].none? returns true' do
+      expect([nil, false].none?).to eql(true)
+    end 
+    it '[nil, false, true].none? returns false' do
+      expect([nil, false, true].none?).to eql(false)
+    end 
+  end
 end
