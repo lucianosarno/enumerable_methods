@@ -37,20 +37,23 @@ describe Enumerable do
     it '%w[ant bear cat].my_all? { |word| word.length >= 3 } return true' do
       expect(str_arr.my_all? { |word| word.length >= 3 }).to eql(true)
     end
-    it '%w[ant bear cat].all? { |word| word.length >= 4 } return false' do
-      expect(str_arr.all? { |word| word.length >= 4 }).to eql(false)
+    it '%w[ant bear cat].my_all? { |word| word.length >= 4 } return false' do
+      expect(str_arr.my_all? { |word| word.length >= 4 }).to eql(false)
     end
-    it '%w[ant bear cat].all?(/t/) returns false' do
+    it '%w[ant bear cat].my_all?(/t/) returns false' do
       expect(str_arr.my_all?(/t/)).to eql(false)
     end
-    it '[1, 2i, 3.14].all?(Numeric) returns true ' do
-      expect([1, 2i, 3.14].all?(Numeric)).to eql(true)
+    it '[1, 2i, 3.14].my_all?(Numeric) returns true ' do
+      expect([1, 2i, 3.14].my_all?(Numeric)).to eql(true)
     end
-    it '[].all? returns true ' do
-      expect([].all? ).to eql(true)
+    it '[].my_all? returns true ' do
+      expect([].my_all? ).to eql(true)
     end
-    it '[nil, true, 99].all?  returns false' do
-      expect([nil, true, 99].all? ).to eql(false)
+    it '[nil, true, 99].my_all?  returns false' do
+      expect([nil, true, 99].my_all? ).to eql(false)
     end
+  end
+  describe '#my_any?' do
+
   end
 end
