@@ -119,4 +119,25 @@ describe Enumerable do
       expect((1..4).my_map { 'cat' }).to eql(['cat', 'cat', 'cat', 'cat'])
     end
   end
+  describe '#my_inject' do
+    it '(5..10).my_inject(:+)  returns 45' do
+      expect((5..10).my_inject(:+)).to eql(45)
+    end 
+    it '(5..10).my_inject{ |sum, n| sum + n }  returns 45' do
+      expect((5..10).my_inject { |sum, n| sum + n } ).to eql(45)
+    end 
+    it '(5..10).my_inject(1, :*) returns 151200' do
+      expect((5..10).my_inject(1, :*)).to eql(151200)
+    end 
+    it '(5..10).my_inject(1) { |product, n| product * n } returns 151200' do
+      expect((5..10).my_inject(1) { |product, n| product * n }).to eql(151200)
+    end 
+    it '# find the longest word in %w{ cat sheep bear }' do
+      longest = %w{ cat sheep bear }.inject do |memo, word|
+        memo.length > word.length ? memo : word
+      end
+      expect(longest).to eql('sheep')
+    end            
+  end
+
 end
