@@ -1,7 +1,5 @@
-# frozen_string_literal: true
-
 require './methods.rb'
-# rubocop:disable Metrics/BlockLength, Layout/LineLength
+# rubocop:disable Layout/LineLength
 
 describe Enumerable do
   let(:str_arr) { %w[ant bear cat] }
@@ -147,4 +145,4 @@ describe Enumerable do
   end
 end
 
-# rubocop:enable Metrics/BlockLength, Layout/LineLength
+# rubocop:enable Layout/LineLength
