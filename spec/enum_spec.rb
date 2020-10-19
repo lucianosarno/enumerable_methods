@@ -3,10 +3,14 @@ require './methods.rb'
 
 describe Enumerable do
   let(:str_arr) { %w[ant bear cat] }
+  let(:num_arr){ [1, 2, 3] }
 
   describe '#my_each' do
     it '[1, 2, 3].my_each { |a| a } should return [1, 2, 3]' do
-      expect([1, 2, 3].my_each { |a| a }).to eql([1, 2, 3])
+      expect(num_arr.my_each { |a| a }).to eql([1, 2, 3])
+    end
+    it '[1, 2, 3].my_each with no block given return Enumerator' do
+      expect(num_arr.my_each).to be_an(Enumerator)
     end
   end
 
@@ -20,6 +24,9 @@ describe Enumerable do
       end
       expect(hash_new).to eql(array_2_expected)
     end
+    it '[1, 2, 3].my_each_with_index with no block given should return Enumerator' do
+      expect(num_arr.my_each_with_index).to be_an(Enumerator)
+    end
   end
   describe '#my_select' do
     it '[1,2,3,4,5].my_select { |num|  num.even?  }  should return [2, 4]' do
@@ -30,6 +37,9 @@ describe Enumerable do
     end
     it '[:foo, :bar].my_select { |x| x == :foo }   #=> [:foo]' do
       expect(%i[foo bar].my_select { |x| x == :foo }).to eql([:foo])
+    end
+    it '[1, 2, 3].my_select with no block given should return Enumerator' do
+      expect(num_arr.select).to be_an(Enumerator)
     end
   end
   describe '#my_all?' do
@@ -51,6 +61,9 @@ describe Enumerable do
     it '[nil, true, 99].my_all?  returns false' do
       expect([nil, true, 99].my_all?).to eql(false)
     end
+    it '[1, true, 99].my_all?  return true when none of the collection members are false or nil.' do
+      expect([1, true, 99].my_all?).to eql(true)
+    end
   end
   describe '#my_any?' do
     it '%w[ant bear cat].my_any? { |word| word.length >= 3 } return true' do
@@ -70,6 +83,9 @@ describe Enumerable do
     end
     it '[].my_any? returns true ' do
       expect([].my_any?).to eql(false)
+    end
+    it '[1, false ].my_any? if block not returns true if at least one of the collection members is not false or nil.returns true ' do
+      expect([1, false].my_any?).to eql(true)
     end
   end
   describe '#my_none' do
@@ -116,6 +132,9 @@ describe Enumerable do
     end
     it "(1..4)).my_map { 'cat' }  returns ['cat', 'cat', 'cat', 'cat']" do
       expect((1..4).my_map { 'cat' }).to eql(%w[cat cat cat cat])
+    end
+    it '(1..4)).my_map If no block is given, an enumerator' do
+      expect((1..4).my_map).to be_an(Enumerator)
     end
   end
   describe '#my_inject' do
