@@ -1,7 +1,5 @@
 require_relative '../methods.rb'
 
-# rubocop:disable Layout/LineLength
-
 describe Enumerable do
   let(:str_arr) { %w[ant bear cat] }
   let(:num_arr) { [1, 2, 3] }
@@ -17,7 +15,8 @@ describe Enumerable do
   end
 
   describe '#my_each_with_index' do
-    it '%w[cat dog wombat].my_each_with_index { |item, index| hash[item] = index } should return {"cat"=>0, "dog"=>1, "wombat"=>2}' do
+    it '%w[cat dog wombat].my_each_with_index { |item, index| hash[item] = index }
+    should return {"cat"=>0, "dog"=>1, "wombat"=>2}' do
       arr = %w[cat dog wombat]
       array_2_expected = { 'cat' => 0, 'dog' => 1, 'wombat' => 2 }
       hash_new = {}
@@ -104,7 +103,8 @@ describe Enumerable do
       expect([].my_any?).to eql(false)
     end
 
-    it '[1, false ].my_any? if block not returns true if at least one of the collection members is not false or nil.returns true ' do
+    it '[1, false ].my_any? if block not returns true if at least one of the
+     collection members is not false or nil.returns true ' do
       expect([1, false].my_any?).to eql(true)
     end
   end
@@ -203,5 +203,3 @@ describe Enumerable do
     end
   end
 end
-
-# rubocop:enable Layout/LineLength
