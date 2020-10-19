@@ -19,10 +19,12 @@ Add specs for all Enumerables methods you previously created.
 - RSpec
 ## 🚀 Our Project
 
-Our project can be found at https://repl.it
+Our project can be found at https://repl.it/github/lucianosarno/enumerable_methods
 ## Live Demo
+[![Run on Repl.it](https://repl.it/badge/github/lucianosarno/enumerable_methods)](https://repl.it/github/lucianosarno/enumerable_methods)
 
-[Live Demo Link](https://)
+
+[Live Demo Link](https://repl.it/github/lucianosarno/enumerable_methods)
 
 
 ## To run the project in local
@@ -32,7 +34,6 @@ Our project can be found at https://repl.it
 - Enter to GIT bash and hit: git clone https://github.com/lucianosarno/enumerable_methods.git
 
 - run rspec ./spec/enum_spec.rb
-
 
 ## 👨🏽‍💻 👨🏿‍💻 Creators
 
