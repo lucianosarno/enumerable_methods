@@ -3,7 +3,7 @@ Add specs for all Enumerables methods you previously created.
 > The aim of this project is to write specs for each enumerable method we created in the last project (Where we added new methods into the existing Enumerable module)
 
 ## Project screenshot
-<img alt="Demonstration" src="screenshot.png"/>
+<img alt="Demonstration" src="enum_rspec.png"/>
 
 
 ## Project specifications
@@ -16,6 +16,7 @@ Add specs for all Enumerables methods you previously created.
 ## 🔨 Built in
 
 - Ruby
+- RSpec
 ## 🚀 Our Project
 
 Our project can be found at https://repl.it

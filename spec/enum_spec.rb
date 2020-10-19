@@ -7,8 +7,8 @@ describe Enumerable do
   let(:str_arr) { %w[ant bear cat] }
 
   describe '#my_each' do
-    it '[1, 2, 3].each_cons(3) { |a| a } should return [1, 2, 3]' do
-      expect(array_1.my_each { |a| a }).to eql([1, 2, 3])
+    it '[1, 2, 3].my_each { |a| a } should return [1, 2, 3]' do
+      expect([1, 2, 3].my_each { |a| a }).to eql([1, 2, 3])
     end
   end
 
