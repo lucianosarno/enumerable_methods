@@ -3,11 +3,11 @@ require './methods.rb'
 
 describe Enumerable do
   let(:str_arr) { %w[ant bear cat] }
-  let(:num_arr){ [1, 2, 3] }
+  let(:num_arr) { [1, 2, 3] }
 
   describe '#my_each' do
     it '[1, 2, 3].my_each { |a| a } should return [1, 2, 3]' do
-      expect(num_arr.my_each { |a| a }).to eql([1, 2, 3])
+      expect([1, 2, 3].my_each { |a| a }).to eql([1, 2, 3])
     end
     it '[1, 2, 3].my_each with no block given return Enumerator' do
       expect(num_arr.my_each).to be_an(Enumerator)
