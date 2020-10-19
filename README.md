@@ -49,7 +49,7 @@ Our project can be found at https://repl.it/github/lucianosarno/enumerable_metho
 
 Contributions, issues and feature requests are welcome!
 
-Feel free to check the [issues page](issues/).
+Feel free to check the [issues page](https://github.com/lucianosarno/enumerable_methods/issues/2).
 
 ## Show your support
 
@@ -57,4 +57,4 @@ Give a ⭐️ if you like this project!
 
 ## 📝 License
 
-This project is [MIT](lic.url) licensed.
+This project is [MIT](https://opensource.org/licenses/MIT) licensed.

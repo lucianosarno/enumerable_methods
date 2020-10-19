@@ -1,4 +1,5 @@
-require './methods.rb'
+require_relative '../methods.rb'
+
 # rubocop:disable Layout/LineLength
 
 describe Enumerable do
@@ -28,6 +29,7 @@ describe Enumerable do
       expect(num_arr.my_each_with_index).to be_an(Enumerator)
     end
   end
+
   describe '#my_select' do
     it '[1,2,3,4,5].my_select { |num|  num.even?  }  should return [2, 4]' do
       expect([1, 2, 3, 4, 5].my_select(&:even?)).to eql([2, 4])
@@ -42,6 +44,7 @@ describe Enumerable do
       expect(num_arr.select).to be_an(Enumerator)
     end
   end
+
   describe '#my_all?' do
     it '%w[ant bear cat].my_all? { |word| word.length >= 3 } return true' do
       expect(str_arr.my_all? { |word| word.length >= 3 }).to eql(true)
@@ -65,6 +68,7 @@ describe Enumerable do
       expect([1, true, 99].my_all?).to eql(true)
     end
   end
+
   describe '#my_any?' do
     it '%w[ant bear cat].my_any? { |word| word.length >= 3 } return true' do
       expect(str_arr.my_any? { |word| word.length >= 3 }).to eql(true)
@@ -88,6 +92,7 @@ describe Enumerable do
       expect([1, false].my_any?).to eql(true)
     end
   end
+
   describe '#my_none' do
     it '%w[ant bear cat].my_none? { |word| word.length == 5} return true' do
       expect(str_arr.my_none? { |word| word.length == 5 }).to eql(true)
@@ -114,6 +119,7 @@ describe Enumerable do
       expect([nil, false, true].my_none?).to eql(false)
     end
   end
+
   describe '#my_count' do
     ary = [1, 2, 4, 2]
     it '[1, 2, 4, 2].my_count returns 4' do
@@ -126,6 +132,7 @@ describe Enumerable do
       expect(ary.my_count(&:even?)).to eql(3)
     end
   end
+
   describe '#my_map' do
     it '(1..4)).my_map { |i| i*i }  returns [1, 4, 9, 16]' do
       expect((1..4).my_map { |i| i * i }).to eql([1, 4, 9, 16])
@@ -137,6 +144,7 @@ describe Enumerable do
       expect((1..4).my_map).to be_an(Enumerator)
     end
   end
+
   describe '#my_inject' do
     it '(5..10).my_inject(:+)  returns 45' do
       expect((5..10).my_inject(:+)).to eql(45)
@@ -157,6 +165,7 @@ describe Enumerable do
       expect(longest).to eql('sheep')
     end
   end
+
   describe 'multiply_els' do
     it 'multiply_els([8, 2, 1]) returns 16' do
       expect(multiply_els([8, 2, 1])).to eql(16)
